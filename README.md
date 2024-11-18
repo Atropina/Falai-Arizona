@@ -1,46 +1,85 @@
-# Getting Started with Create React App
+Chat Application
+Este é um projeto de interface de chat desenvolvido com React e Firebase. O objetivo do projeto é simular a comunicação em tempo real entre diferentes usuários, com uma interface intuitiva, funcional e visualmente agradável. O projeto também serve como um teste de conhecimento e prática das tecnologias envolvidas.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Tecnologias Utilizadas
+React: Biblioteca JavaScript para a criação da interface.
+Firebase Firestore: Banco de dados NoSQL usado para gerenciar mensagens em tempo real.
+Firebase Authentication: Autenticação para usuários.
+Cloudinary: Serviço de armazenamento de arquivos, usado para upload de arquivos/imagens.
+Funcionalidades
+Requisitos Básicos
+ Interface de Conversa:
 
-## Available Scripts
+Área de exibição de mensagens.
+Área de entrada de texto para o envio de novas mensagens.
+Diferenciação visual entre mensagens enviadas pelo usuário e mensagens recebidas.
+Nome de usuário fictício e timestamp para simular conversas entre diferentes participantes.
+ Envio de Mensagens:
 
-In the project directory, you can run:
+Implementação do envio de mensagens exibindo imediatamente após o envio.
+Simulação local de mensagens automáticas para criar uma conversa bidirecional.
+ Design Responsivo:
 
-### `npm start`
+Interface responsiva para funcionar bem em diferentes tamanhos de tela, incluindo dispositivos móveis e desktops.
+ Anexar Arquivos ao Chat:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Suporte para anexar arquivos à conversa, utilizando arrastar e soltar (drag-and-drop) e seleção manual.
+Requisitos Opcionais (Diferenciais)
+ Notificações de "Digitando...":
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Indicativo visual mostrando quando o outro usuário está "digitando".
+ Notificações e Sons:
 
-### `npm test`
+Notificações visuais e sonoras para novas mensagens recebidas, caso o usuário não esteja na tela do chat.
+ Emojis e Reações:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Suporte para emojis e reações rápidas às mensagens. (Loading...)
+ Modo Claro/Escuro:
 
-### `npm run build`
+Alternar entre modo claro e escuro. (Loading...)
+ Personalização para a Marca:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Interface personalizada com detalhes, cores e logos referentes à marca Arizona.
+ Drag and Drop:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Possibilidade de arrastar arquivos para a janela de chat para anexar à conversa.
+Como Executar o Projeto
+Pré-requisitos
+Node.js (v14 ou superior)
+Yarn ou NPM
+Firebase (configurar o Firestore e Authentication)
+Passos
+Clone o repositório:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+sh
+Copiar código
+git clone https://github.com/seu-usuario/chat-application.git
+cd chat-application
+Instale as dependências:
 
-### `npm run eject`
+sh
+Copiar código
+npm install
+# ou
+yarn install
+Crie um arquivo .env com as variáveis de ambiente do Firebase:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+makefile
+Copiar código
+REACT_APP_FIREBASE_API_KEY=seu_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=seu_auth_domain
+REACT_APP_FIREBASE_PROJECT_ID=seu_project_id
+Inicie o projeto:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+sh
+Copiar código
+npm start
+# ou
+yarn start
+Funcionalidades em Destaque
+Mensagens em Tempo Real: O chat foi desenvolvido utilizando Firebase Firestore, permitindo que as mensagens sejam exibidas em tempo real.
+Indicador de Status: Indicadores de "online" e "digitando" adicionados para melhorar a experiência do usuário.
+Upload de Arquivos: Usuários podem anexar arquivos ao chat, utilizando Cloudinary para armazenamento.
+Melhorias Futuras
+Modo Claro/Escuro: Implementação do modo claro e escuro para aprimorar a acessibilidade e as preferências de visualização dos usuários.
+Emojis e Reações: Adicionar suporte para emojis e reações rápidas às mensagens.
