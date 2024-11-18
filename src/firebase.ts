@@ -7,14 +7,6 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyA8D5uSS_IjDLMYNU4UapYeK3Yzlz0SdOQ",
-  authDomain: "talkai-20b4d.firebaseapp.com",
-  projectId: "talkai-20b4d",
-  storageBucket: "talkai-20b4d.firebasestorage.app",
-  messagingSenderId: "713736895011",
-  appId: "1:713736895011:web:819dae880aff85eb8fcf96"
-};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
