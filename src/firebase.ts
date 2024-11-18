@@ -3,19 +3,21 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDFQAU-XHNgIKUfj_i6wjRfBmVtt80B3LE",
-  authDomain: "falai-d453a.firebaseapp.com",
-  projectId: "falai-d453a",
-  storageBucket: "falai-d453a.firebasestorage.app",
-  messagingSenderId: "195084729091",
-  appId: "1:195084729091:web:52aa13b3f5d3710e060736"
+  apiKey: "AIzaSyA8D5uSS_IjDLMYNU4UapYeK3Yzlz0SdOQ",
+  authDomain: "talkai-20b4d.firebaseapp.com",
+  projectId: "talkai-20b4d",
+  storageBucket: "talkai-20b4d.firebasestorage.app",
+  messagingSenderId: "713736895011",
+  appId: "1:713736895011:web:819dae880aff85eb8fcf96"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+export const storage = getStorage(app);

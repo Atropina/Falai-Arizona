@@ -10,29 +10,24 @@ import {
 } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { auth } from "../firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect } from "firebase/auth";
-import { Navigate, redirect, Router, Routes, useNavigate } from 'react-router-dom';
-import Home from './home';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { useAuth } from '../services/auth';
-import { Email, Password } from '@mui/icons-material';
 
-// Definindo a paleta de cores
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FF6400', // cor destaque
+      main: '#FF6400',
     },
     secondary: {
-      main: '#A0C4FF', // azul claro para fundo e acentos sutis
+      main: '#A0C4FF',
     },
     background: {
-      default: '#E5E5E5', // fundo neutro claro
+      default: '#E5E5E5',
     },
     text: {
-      primary: '#333333', // cor do texto principal
-      secondary: '#0064FF', // link e detalhes
+      primary: '#333333',
+      secondary: '#0064FF',
     },
   },
   typography: {
@@ -43,33 +38,65 @@ const theme = createTheme({
   },
 });
 
-
-
 const Register: React.FC = () => {
-  const navigate = useNavigate()
-  const [ password, setPassword] = useState('')
-  const [ username, setUsername] = useState('')
-  const [ email, setEmail] = useState('')
-  const {user, registerSSO, register } = useAuth()
+  const navigate = useNavigate();
+  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const { user, registerSSO, register } = useAuth();
+
   useEffect(() => {
     if (user) {
-      navigate('/home'); // Redireciona para /home se o usuário já estiver logado
+      navigate('/home');
     }
   }, [user, navigate]);
-  const handleRegister = () =>{
-    register(username,email, password)
 
+  const handleRegister = async () => {
+    if (!username || !email || !password) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro',
+        text: 'Por favor, preencha todos os campos.',
+      });
+      return;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro',
+        text: 'Por favor, insira um e-mail válido.',
+      });
+      return;
+    }
+    if (password.length < 6) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro',
+        text: 'A senha deve ter pelo menos 6 caracteres.',
+      });
+      return;
+    }
 
-  }
+    try {
+      await register(username, email, password);
+    } catch (error: any) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro ao registrar',
+        text: error.message,
+      });
+    }
+  };
 
-  const handleRegisterSSO = () =>{
-    registerSSO()
-  }
+  const handleRegisterSSO = () => {
+    registerSSO();
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Box
         sx={{
-          bgcolor: 'background.default', // Aplicando a cor de fundo aqui
+          bgcolor: 'background.default',
           minHeight: '100vh',
           width: '100vw',
           display: 'flex',
@@ -80,7 +107,7 @@ const Register: React.FC = () => {
         <Container maxWidth="xs">
           <Box
             sx={{
-              backgroundColor: 'white', // Caixa branca para contraste com fundo cinza
+              backgroundColor: 'white',
               p: 4,
               borderRadius: 3,
               boxShadow: 3,
@@ -91,7 +118,6 @@ const Register: React.FC = () => {
               Registrar
             </Typography>
 
-
             <TextField
               label="Nome Completo"
               variant="outlined"
@@ -99,7 +125,6 @@ const Register: React.FC = () => {
               margin="normal"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-             
             />
             <TextField
               value={email}
@@ -108,7 +133,6 @@ const Register: React.FC = () => {
               variant="outlined"
               fullWidth
               margin="normal"
-           
             />
             <TextField
               value={password}
@@ -118,7 +142,6 @@ const Register: React.FC = () => {
               variant="outlined"
               fullWidth
               margin="normal"
-          
             />
             <Button
               onClick={handleRegister}

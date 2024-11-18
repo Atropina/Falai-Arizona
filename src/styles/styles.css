@@ -1,0 +1,83 @@
+/* Estilo do balão de mensagens */
+.message-bubble {
+    max-width: 80%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message-bubble.sent {
+    background-color: #ff9f00; /* Laranja */
+    margin-left: auto;
+  }
+  
+  .message-bubble.received {
+    background-color: #2196f3; /* Azul */
+    margin-right: auto;
+  }
+  
+  .message-bubble .message-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message-bubble img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 5px;
+  }
+  
+  /* Responsividade para telas menores (Ex: Celulares) */
+  @media (max-width: 768px) {
+    .chat-box {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+  
+    .messages {
+      flex: 1;
+      padding: 8px;
+      overflow-y: auto;
+    }
+  
+    .input-area {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-top: 1px solid #ccc;
+      flex-direction: column; /* Empilha na vertical em telas menores */
+    }
+  
+    .input-area textarea {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .input-area button {
+      width: 100%;
+    }
+  }
+  
+  /* Ajuste para telas muito pequenas */
+  @media (max-width: 480px) {
+    .messages {
+      padding: 5px;
+    }
+  
+    .input-area {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    button {
+      width: 100%;
+      margin-top: 5px;
+    }
+  }
+  

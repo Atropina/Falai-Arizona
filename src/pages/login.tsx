@@ -10,25 +10,24 @@ import {
 } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { useAuth } from '../services/auth';
 
-// Definindo a paleta de cores
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FF6400', // cor destaque
+      main: '#FF6400',
     },
     secondary: {
-      main: '#A0C4FF', // azul claro para fundo e acentos sutis
+      main: '#A0C4FF',
     },
     background: {
-      default: '#E5E5E5', // fundo neutro claro
+      default: '#E5E5E5',
     },
     text: {
-      primary: '#333333', // cor do texto principal
-      secondary: '#0064FF', // link e detalhes
+      primary: '#333333',
+      secondary: '#0064FF',
     },
   },
   typography: {
@@ -42,21 +41,45 @@ const theme = createTheme({
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const {user,login, registerSSO } = useAuth();
+  const { user, login, registerSSO } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-   
-    login(email, password)
-    
+  const handleSubmit = async () => {
+    if (!email || !password) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro',
+        text: 'Por favor, preencha todos os campos.',
+      });
+      return;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro',
+        text: 'Por favor, insira um e-mail válido.',
+      });
+      return;
+    }
+
+    try {
+      await login(email, password);
+    } catch (error: any) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro ao fazer login',
+        text: error.message,
+      });
+    }
   };
 
   const handleGoogleLogin = () => {
-    registerSSO()
+    registerSSO();
   };
+
   useEffect(() => {
     if (user) {
-      navigate('/home'); // Redireciona para /home se o usuário já estiver logado
+      navigate('/home');
     }
   }, [user, navigate]);
 
