@@ -65,8 +65,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({ chatName, chatWith, currentUser, user
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const isPageVisible = useRef<boolean>(true);
 
-  const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dy1bbibdx/upload";
-  const CLOUDINARY_UPLOAD_PRESET = "lkj3mclv";
+ 
 
   useEffect(() => {
     const handleVisibilityChange = () => {
