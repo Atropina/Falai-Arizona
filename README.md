@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# Chat Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um projeto de interface de chat desenvolvido com React e Firebase. O objetivo do projeto é simular a comunicação em tempo real entre diferentes usuários, com uma interface intuitiva, funcional e visualmente agradável. O projeto também serve como um teste de conhecimento e prática das tecnologias envolvidas.
 
-## Available Scripts
+## Tecnologias Utilizadas
 
-In the project directory, you can run:
+- **React**: Biblioteca JavaScript para a criação da interface.
+- **Firebase Firestore**: Banco de dados NoSQL usado para gerenciar mensagens em tempo real.
+- **Firebase Authentication**: Autenticação para usuários.
+- **Cloudinary**: Serviço de armazenamento de arquivos, usado para upload de arquivos/imagens.
 
-### `npm start`
+## Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Requisitos Básicos
+- [x] **Interface de Conversa**:
+  - Área de exibição de mensagens.
+  - Área de entrada de texto para o envio de novas mensagens.
+  - Diferenciação visual entre mensagens enviadas pelo usuário e mensagens recebidas.
+  - Nome de usuário fictício e timestamp para simular conversas entre diferentes participantes.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [x] **Envio de Mensagens**:
+  - Implementação do envio de mensagens exibindo imediatamente após o envio.
+  - Simulação local de mensagens automáticas para criar uma conversa bidirecional.
 
-### `npm test`
+- [x] **Design Responsivo**:
+  - Interface responsiva para funcionar bem em diferentes tamanhos de tela, incluindo dispositivos móveis e desktops.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [x] **Anexar Arquivos ao Chat**:
+  - Suporte para anexar arquivos à conversa, utilizando arrastar e soltar (drag-and-drop) e seleção manual.
 
-### `npm run build`
+### Requisitos Opcionais (Diferenciais)
+- [x] **Notificações de "Digitando..."**:
+  - Indicativo visual mostrando quando o outro usuário está "digitando".
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [x] **Notificações e Sons**:
+  - Notificações visuais e sonoras para novas mensagens recebidas, caso o usuário não esteja na tela do chat.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ ] **Emojis e Reações**:
+  - Suporte para emojis e reações rápidas às mensagens. *(Loading...)*
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ ] **Modo Claro/Escuro**:
+  - Alternar entre modo claro e escuro. *(Loading...)*
 
-### `npm run eject`
+- [x] **Personalização para a Marca**:
+  - Interface personalizada com detalhes, cores e logos referentes à marca Arizona.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [x] **Drag and Drop**:
+  - Possibilidade de arrastar arquivos para a janela de chat para anexar à conversa.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
